@@ -14,10 +14,10 @@ function checkLight() {
   setTimeout(function() {
     $.ajax(settings).done(function (response) {
       console.log(response);
-      if (response[0].power == "on") {
-        $("body").css("background-color", "red");
-      } else {
+      if (response[0].connected == true) {
         $("body").css("background-color", "green");
+      } else {
+        $("body").css("background-color", "red");
       }
     });
     checkLight();
