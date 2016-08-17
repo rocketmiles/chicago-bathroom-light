@@ -10,17 +10,55 @@ var settings = {
   }
 }
 
+// START Liam's Garbage
+
+var secondsInBathroom = null;
+
+var timeHistory = [];
+
+function startStopWatch() {
+  setTimeout(function() {
+    console.log(secondsInBathroom);
+    if (secondsInBathroom != null) {
+      secondsInBathroom++;
+      $("#counter").text(secondsInBathroom + " seconds in bathroom");
+    } else {
+      $("#counter").text("Unoccupied");
+    }
+    startStopWatch();
+  }, 1000)
+}
+
+startStopWatch();
+
+function displayTimeHistory() {
+  timeHistory.sort();
+  var lis = timeHistory.map(function(t) {
+     return $("<li>" + t + " seconds in bathroom</li>");
+  });
+  $("#timeHistory").html(lis);
+}
+
+/// END Liam's Garbage
+
 function checkLight() {
   setTimeout(function() {
     $.ajax(settings).done(function (response) {
-      console.log(response);
-      if (response[0].power == "on") {
-        $("body").css("background-color", "red");
-      } else {
+      console.log("Light", response[0]);
+      if (response[0].seconds_since_seen >= 1) {
+        if (secondsInBathroom != null) {
+          timeHistory.push(secondsInBathroom);
+        }
+        
+        displayTimeHistory();
+        secondsInBathroom = null;
         $("body").css("background-color", "green");
+      } else {
+        secondsInBathroom = (secondsInBathroom == null) ? 0 : secondsInBathroom;
+        $("body").css("background-color", "red");
       }
     });
     checkLight();
-  }, 2000);
+  }, 5000);
 }
 checkLight();
