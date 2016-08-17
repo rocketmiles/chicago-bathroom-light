@@ -21,6 +21,6 @@ function checkLight() {
       }
     });
     checkLight();
-  }, 5000);
+  }, 10000);
 }
 checkLight();
