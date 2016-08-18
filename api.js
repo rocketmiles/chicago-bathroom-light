@@ -36,7 +36,7 @@ function startStopWatch() {
 startStopWatch();
 
 function displayTimeHistory() {
-  timeHistory.sort();
+  timeHistory.sort(function(a,b) {return b-a}); // Javascript  ¯\_(ツ)_/¯
   var lis = timeHistory.map(function(t) {
      return $("<li>" + t + " seconds in bathroom</li>");
   });
