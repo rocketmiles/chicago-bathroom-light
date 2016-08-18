@@ -20,8 +20,7 @@ body.occupied {
   display:none;
 }
 img {
-  margin-top: 100px;
-  margin-bottom: 50px;
+  margin: 100px auto 50px auto;
 }
 #counter {
   font-weight: 100;
