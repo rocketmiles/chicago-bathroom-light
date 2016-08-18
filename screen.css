@@ -11,12 +11,14 @@ body {
   background-color: grey;
 }
 body.vacant {
-  background-image: linear-gradient(-180deg, #FF0000 0%, #9F046A 100%);
+  background-color: #5DCF57;
 }
 body.occupied {
-  background-image: linear-gradient(-180deg, #FF0000 0%, #830000 100%);
+  background-color: #EF4949;
 }
-
+#occupiedIcon {
+  display:none;
+}
 img {
   margin-top: 100px;
   margin-bottom: 50px;

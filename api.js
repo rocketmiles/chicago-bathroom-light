@@ -57,16 +57,13 @@ function checkLight() {
         displayTimeHistory();
         secondsInBathroom = null;
         $("body").removeClass('vacant').addClass('occupied');
-        $("#vacantIcon").hide("fast", function() {
-          $("#occupiedIcon").show();
-        });
-
+        $("#vacantIcon").css("display","none");
+        $("#occupiedIcon").css("display","block");
       } else {
         secondsInBathroom = (secondsInBathroom == null) ? 0 : secondsInBathroom;
         $("body").removeClass('occupied').addClass('vacant');
-        $("#occupiedIcon").hide("fast", function() {
-          $("#vacantIcon").show();
-        });
+        $("#occupiedIcon").css("display","none");
+        $("#vacantIcon").css("display","block");
       }
     });
     checkLight();
