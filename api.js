@@ -16,14 +16,18 @@ var secondsInBathroom = null;
 
 var timeHistory = [];
 
+
 function startStopWatch() {
   setTimeout(function() {
     console.log(secondsInBathroom);
     if (secondsInBathroom != null) {
+      $("#vacantIcon").hide();
+      $("#occupiedIcon").show();
       secondsInBathroom++;
       $("#counter").text(secondsInBathroom + " seconds in bathroom");
     } else {
-      $("#counter").text("Unoccupied");
+      $("#occupiedIcon").hide();
+      $("#vacantIcon").show();
     }
     startStopWatch();
   }, 1000)
@@ -49,13 +53,15 @@ function checkLight() {
         if (secondsInBathroom != null) {
           timeHistory.push(secondsInBathroom);
         }
-        
+
         displayTimeHistory();
         secondsInBathroom = null;
-        $("body").css("background-color", "green");
+        $("body").removeClass('vacant');
+        $("body").addClass('occupied');
       } else {
         secondsInBathroom = (secondsInBathroom == null) ? 0 : secondsInBathroom;
-        $("body").css("background-color", "red");
+        $("body").removeClass('occupied');
+        $("body").addClass('vacant');
       }
     });
     checkLight();

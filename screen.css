@@ -1,0 +1,29 @@
+html {
+  height: 100%;
+}
+body {
+  text-align: center;
+  color: #FFF;
+  height: 100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: grey;
+}
+body.vacant {
+  background-image: linear-gradient(-180deg, #FF0000 0%, #9F046A 100%);
+}
+body.occupied {
+  background-image: linear-gradient(-180deg, #32CA00 0%, #367C0D 100%);
+}
+
+img {
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
+#counter {
+  font-weight: 100;
+  font-size: 150px;
+  margin-bottom: 30px;
+  color: #FFF;
+}
