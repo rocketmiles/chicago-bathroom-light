@@ -16,7 +16,6 @@ var secondsInBathroom = null;
 
 var timeHistory = [];
 
-
 function startStopWatch() {
   setTimeout(function() {
     console.log(secondsInBathroom);
