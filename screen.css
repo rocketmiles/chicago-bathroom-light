@@ -4,8 +4,13 @@ html {
 body {
   color: #FFF;
   background-color: #2B2D36;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "hydrophilia-iced", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-align: center;
+}
+.container {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .message {
@@ -27,29 +32,20 @@ body {
   font-size: 32px;
   text-align: center;
 }
-hr {
-  border: 0;
-  color: #FFF;
-  background-color: #FFF;
-  height: 3px;
-  width: 80%;
+h1 {
+  font-weight: 100;
+}
+.vacant {
+  color: #3D3F47;
+  text-shadow: none;
+}
+.vacant span {
+  -webkit-animation: none !important;
+  opacity: 1.0 !important;
 }
 
-/*div {
-  position: absolute;
-  top: 50%; left: 50%;
-  height: 150px; width: 500px;
-  margin: -150px 0 0 -250px;
-  padding: 20px;
-  font-size:75px;
-  text-align: center;
-  text-transform: uppercase;
-  text-shadow: 0 0 80px red,0 0 30px FireBrick,0 0 6px DarkRed;
-  color: red;
-}*/
+
 div p { margin:0; }
-#error:hover { text-shadow: 0 0 200px #ffffff,0 0 80px #008000,0 0 6px #0000ff; }
-#code:hover { text-shadow: 0 0 100px red,0 0 40px FireBrick,0 0 8px DarkRed; }
 #error {
   color: #fff;
   text-shadow: 0 0 80px #ffffff,0 0 30px #008000,0 0 6px #0000ff;
