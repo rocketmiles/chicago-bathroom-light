@@ -2,36 +2,30 @@ html {
   height: 100%;
 }
 body {
+  color: #FFF;
+  background-color: #2B2D36;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-align: center;
-  color: #FFF;
-  height: 100%;
-  margin: 0;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-color: grey;
 }
-body.vacant {
-  background-color: #5DCF57;
+
+.message {
+  font-size: 150px;
+  text-align: center;
+  text-shadow: 0 0 80px red,0 0 30px FireBrick,0 0 6px DarkRed;
+  color: red;
+  font-family: "acier-bat-gris", "Helvetica Neue", sans-serif;
+  margin-top: 200px;
+  margin-bottom: 80px;
+
 }
-body.occupied {
-  background-color: #EF4949;
-}
-#occupiedIcon {
-  display:none;
-}
-img {
-  margin: 100px auto 50px auto;
-}
-#counter {
-  font-weight: 100;
-  font-size: 72px;
-  margin-bottom: 30px;
-  color: #FFF;
+#error, #code {
+  display: inline-block;
 }
 
 #timeHistory li {
   list-style-type: none;
   font-size: 32px;
+  text-align: center;
 }
 hr {
   border: 0;
@@ -39,4 +33,50 @@ hr {
   background-color: #FFF;
   height: 3px;
   width: 80%;
+}
+
+/*div {
+  position: absolute;
+  top: 50%; left: 50%;
+  height: 150px; width: 500px;
+  margin: -150px 0 0 -250px;
+  padding: 20px;
+  font-size:75px;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 0 0 80px red,0 0 30px FireBrick,0 0 6px DarkRed;
+  color: red;
+}*/
+div p { margin:0; }
+#error:hover { text-shadow: 0 0 200px #ffffff,0 0 80px #008000,0 0 6px #0000ff; }
+#code:hover { text-shadow: 0 0 100px red,0 0 40px FireBrick,0 0 8px DarkRed; }
+#error {
+  color: #fff;
+  text-shadow: 0 0 80px #ffffff,0 0 30px #008000,0 0 6px #0000ff;
+}
+#error span {
+  -webkit-animation: upper 11s linear infinite;
+}
+#code span:nth-of-type(2) {
+  -webkit-animation: lower 10s linear infinite;
+}
+#code span:nth-of-type(1) {
+  text-shadow: none;
+  opacity:.4;
+}
+@keyframes upper {
+  0%,19.999%,22%,62.999%,64%, 64.999%,70%,100% {
+    opacity:.99; text-shadow: 0 0 80px #ffffff,0 0 30px #008000,0 0 6px #0000ff;
+  }
+  20%,21.999%,63%,63.999%,65%,69.999% {
+    opacity:0.4; text-shadow: none;
+  }
+}
+@keyframes lower {
+  0%,12%,18.999%,23%,31.999%,37%,44.999%,46%,49.999%,51%,58.999%,61%,68.999%,71%,85.999%,96%,100% {
+    opacity:0.99; text-shadow: 0 0 80px red,0 0 30px FireBrick,0 0 6px DarkRed;
+  }
+  19%,22.99%,32%,36.999%,45%,45.999%,50%,50.99%,59%,60.999%,69%,70.999%,86%,95.999% {
+    opacity:0.4; text-shadow: none;
+  }
 }

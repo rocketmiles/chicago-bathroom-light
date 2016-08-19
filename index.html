@@ -3,6 +3,8 @@
 	<head>
 	<title>Is The Bathroom Occupied?</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="https://use.typekit.net/bgd5xlr.js"></script>
+	<script>try{Typekit.load({ async: true });}catch(e){}</script>
 	<script src="api.js"></script>
 	<link rel="stylesheet" href="normalize.css"/>
 	<link rel="stylesheet" href="screen.css"/>
@@ -10,11 +12,13 @@
 	</head>
 
 	<body>
-		<img src="vacant.svg" width="400" height="400" id="vacantIcon"/>
-		<img src="occupied.svg" width="400" height="400" id="occupiedIcon"/>
+
 
 		<!-- <h1 id="counter" style="color: white; margin: auto;"></h1> -->
-
+		<div class="message">
+  		<p id="code">N<span>O</span></p>
+  		<p id="error">VACAN<span>C</span>Y</p>
+		</div>
 		<hr/>
 		<h1>High Scores</h1>
 		<ul id="timeHistory"></ul>

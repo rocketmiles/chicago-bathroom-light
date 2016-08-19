@@ -52,14 +52,16 @@ function checkLight() {
 
         displayTimeHistory();
         secondsInBathroom = null;
-        $("body").removeClass('occupied').addClass('vacant');
-        $("#occupiedIcon").css("display","none");
-        $("#vacantIcon").css("display","block");
+        $("#code").hide();
+        // $("body").removeClass('occupied').addClass('vacant');
+        // $("#occupiedIcon").css("display","none");
+        // $("#vacantIcon").css("display","block");
       } else {
         secondsInBathroom = (secondsInBathroom == null) ? 0 : secondsInBathroom;
-        $("body").removeClass('vacant').addClass('occupied');
-        $("#vacantIcon").css("display","none");
-        $("#occupiedIcon").css("display","block");
+        $("#code").show();
+        // $("body").removeClass('vacant').addClass('occupied');
+        // $("#vacantIcon").css("display","none");
+        // $("#occupiedIcon").css("display","block");
       }
     });
     checkLight();
