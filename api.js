@@ -40,19 +40,6 @@ var secondsInBathroom = null;
 
 var timeHistory = [];
 
-function startStopWatch() {
-  setTimeout(function() {
-    console.log(secondsInBathroom);
-    if (secondsInBathroom != null) {
-      secondsInBathroom++;
-      $("#counter").text(secondsInBathroom + " seconds in bathroom");
-    } else {
-    }
-    startStopWatch();
-  }, 1000)
-}
-
-startStopWatch();
 
 function displayTimeHistory() {
   timeHistory.sort(function(a,b) {return b-a}); // Javascript  ¯\_(ツ)_/¯
@@ -65,16 +52,20 @@ function displayTimeHistory() {
 /// END Liam's Garbage
 function update(response) {
   console.log("Light", response[0]);
-  if (response[0].seconds_since_seen >= 1) {
-    if (secondsInBathroom != null) {
-      timeHistory.push(secondsInBathroom);
+  if (response[0].seconds_since_seen >= 1) {  // Bathroom is empty
+    if (secondsInBathroom != null) {  // Bathroom has become vacant since last check
+      var newRecord = (Date.now() - secondsInBathroom) / 1000;
+      timeHistory.push(newRecord.toFixed(0));
     }
 
     displayTimeHistory();
     secondsInBathroom = null;
     $("#code").addClass('vacant')
-  } else {
-    secondsInBathroom = (secondsInBathroom == null) ? 0 : secondsInBathroom;
+  } else {  // Bathroom is occupied
+    if (secondsInBathroom == null) {  // Bathroom has become occupied since last check
+      secondsInBathroom = Date.now();
+    }
+    //secondsInBathroom = (secondsInBathroom == null) ? 0 : secondsInBathroom;
     $("#code").removeClass('vacant')
   }
 }
