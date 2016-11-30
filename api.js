@@ -1,7 +1,7 @@
 var settings = {
   "async": true,
   "crossDomain": true,
-  "url": "https://api.lifx.com/v1/lights/all",
+  "url": "https://api.lifx.com/v1/lights/d073d510a0d1",
   "method": "GET",
   "headers": {
     "authorization": "Bearer c78dd6109b2a0e4aac2aedeaeff660a77be7a8cb12cb20e709bea973f28cb2d0",
@@ -13,7 +13,7 @@ var settings = {
 // START Debugging
 /*
   Debug Mode uses a mock call instead of hitting the API. Since the mock call is in the global scope
-  it is really helpful for remote development when you don't have physical access to the light. 
+  it is really helpful for remote development when you don't have physical access to the light.
 
   To turn on Debug Mode just add debug=true to the query params.
 */
@@ -76,8 +76,8 @@ function checkLight() {
       update(exampleResp);
     } else {
       $.ajax(settings).done(update);
-    }    
-    
+    }
+
     checkLight();
   }, 5000);
 }
