@@ -46,7 +46,7 @@ function displayTimeHistory() {
   var lis = timeHistory.map(function(t) {
      return $("<li>" + t + " seconds in bathroom</li>");
   });
-  $("#timeHistory").html(lis);
+  $("#timeHistory").html(lis.reverse() ); //added reverse to make LOW scores.
 }
 
 /// END Liam's Garbage
