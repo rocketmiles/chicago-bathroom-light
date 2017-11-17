@@ -4,9 +4,7 @@ var settings = {
   "url": "https://api.lifx.com/v1/lights/d073d510a0d1",
   "method": "GET",
   "headers": {
-    "authorization": "Bearer c78dd6109b2a0e4aac2aedeaeff660a77be7a8cb12cb20e709bea973f28cb2d0",
-    "cache-control": "no-cache",
-    "postman-token": "8561b10d-baa5-e725-ccee-658fa4f9d492"
+    "Authorization": "Bearer c78dd6109b2a0e4aac2aedeaeff660a77be7a8cb12cb20e709bea973f28cb2d0"
   }
 }
 
@@ -37,8 +35,8 @@ function isDebugModeOn() {
 // START Liam's Garbage
 
 var secondsInBathroom = null;
-
 var timeHistory = [];
+var newRecord;
 
 
 function displayTimeHistory() {
@@ -46,15 +44,15 @@ function displayTimeHistory() {
   var lis = timeHistory.map(function(t) {
      return $("<li>" + t + " seconds in bathroom</li>");
   });
-  $("#timeHistory").html(lis.reverse() ); //added reverse to make LOW scores.
+  $("#timeHistory").html(lis);
 }
 
 /// END Liam's Garbage
 function update(response) {
-  console.log("Light", response[0]);
-  if (response[0].seconds_since_seen >= 1) {  // Bathroom is empty
+  // console.log("Light", response[0]);
+  if (!isLightOn(response[0])) {  // Bathroom is empty
     if (secondsInBathroom != null) {  // Bathroom has become vacant since last check
-      var newRecord = (Date.now() - secondsInBathroom) / 1000;
+      newRecord = (Date.now() - secondsInBathroom) / 1000;
       timeHistory.push(newRecord.toFixed(0));
     }
 
@@ -68,6 +66,10 @@ function update(response) {
     //secondsInBathroom = (secondsInBathroom == null) ? 0 : secondsInBathroom;
     $("#code").removeClass('vacant')
   }
+}
+
+function isLightOn(light) {
+  return (light.seconds_since_seen === 0) ? true : false;
 }
 
 function checkLight() {
